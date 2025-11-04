@@ -47,6 +47,8 @@ class TaskRepository:
         return filepath_real
     
     def _get_foldername_for_output(self):
+        cwd = os.getcwd()
+
         possible_output_names = ["output", "outputs", "tasks"]
 
         output_folder = next((name for name in possible_output_names if name in os.listdir(cwd)), None)
