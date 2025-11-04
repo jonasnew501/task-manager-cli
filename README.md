@@ -43,23 +43,23 @@ A clear separation is done between
 project-root/
 ├── src/
 │   └── package-name/
-│       ├── core/                  # contains domain logic (models + business rules)
-│       │   ├── task.py            # Task model
-│       │   ├── repository.py      # TaskRepository (SRP)
-│       │   └── manager.py         # Core logic / coordination layer
+│       ├── core/                      # contains domain logic (models + business rules)
+│       │   ├── task.py                # Task model
+│       │   ├── taskRepository.py      # TaskRepository (SRP)
+│       │   └── taskManager.py         # Core logic / coordination layer
 │       │   └── filters.py
-│       ├── cli/                   # handles parsing input & printing output
-│       │   ├── main.py            # CLI entry point, argument parsing
+│       ├── cli/                       # handles parsing input & printing output
+│       │   ├── main.py                # CLI entry point, argument parsing
 
-├── tests/                         # contains Unittests
+├── tests/                             # contains Unittests
 │       ├── core/
 │       │   ├── test_task.py
-│       │   ├── test_repository.py
-│       │   └── test_manager.py
+│       │   ├── test_taskRepository.py
+│       │   └── test_taskManager.py
 │       │   └── test_filters.py
 
 ├── dist/
-│   └── task_manager_cli.exe       # Built executable output
+│   └── task_manager_cli.exe           # Built executable output
 ├── pyproject.toml
 └── README.md
 └── requirements.txt
