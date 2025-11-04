@@ -119,7 +119,7 @@ project-root/
 - Treat small programs like real software systems
 
 
-## What I Learned (ongoing notes)
+## What I Learned
 
 > This list will be updated while the project evolves
 
