@@ -1,5 +1,4 @@
 
-
 class Task:
     def __init__(self, description: str, category: str, completed: bool):
         self.description = description
