@@ -36,7 +36,7 @@ class CLI:
         cmd, args = self._get_command_and_arguments_of_user_input(user_input=user_input)
 
         if cmd == "add":
-            
+            pass
 
         
     
