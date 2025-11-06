@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "task-manager-cli"
 version = "0.1.0"
-description = "A CLI-application to create, modify, filter, save, and print tasks."
+description = "A CLI-application to create, modify, filter, save, load, and print tasks."
 authors = [{ name = "Jonas" }]
 dependencies = []
 requires-python = ">=3.9"
