@@ -1,5 +1,6 @@
 from src.task_manager_cli.core.taskRepository import TaskRepository
 from src.task_manager_cli.core.task import Task
+from src.task_manager_cli.core.filters import TaskFilter
 
 
 class TaskManager:
@@ -20,8 +21,14 @@ class TaskManager:
     def update_task_category(self, task_id: int, new_category: str):
         self.taskRepository.update_task_category(task_id=task_id, new_category=new_category)
     
-    #TODO: Implement
-    # def list_tasks(self, filters: list[Filter] = None) -> list[Task]:
+    def list_tasks(self, filters: list[TaskFilter] = None) -> list[Task]:
+        all_tasks = self.taskRepository.get_all_tasks()
+
+        filtered_tasks = [task for task in all_tasks if all(filter.match(task) for filter in filters)]
+
+        return filtered_tasks
+
+
         
 
     
