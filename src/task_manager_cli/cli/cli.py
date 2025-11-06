@@ -24,7 +24,45 @@ class CLI:
             self._handle_command(user_input)
     
     def _handle_command(self, user_input: str):
-        pass
+        """
+        Handles the command given by the user by calling the
+        respective / appropriate method of 'TaskManager'.
+
+        Note:
+        Expects 'user_input' to:
+            - contain no leading or trailing whitespaces
+            - be completely lowercase
+        """
+        cmd, args = self._get_command_and_arguments_of_user_input(user_input=user_input)
+
+        if cmd == "add":
+            
+
+        
+    
+    def _get_command_and_arguments_of_user_input(self, user_input: str) -> tuple:
+        """
+        Retrieves the command and any potential arguments along with the command
+        and returns them.
+
+        TODO: Add 'Return'-description
+        """
+        user_input_split = user_input.split(" ")
+
+        cmd = user_input_split[0]
+        args = user_input_split[1:]
+
+        if not args:
+            return (cmd, "")
+        
+        return (cmd, args)
+    
+
+    def _any_uppercase(self, string: str) -> bool:
+        """
+        Checks if there is at least one uppcase-letter in 'string'.
+        """
+        return any(literal.isupper() for literal in string)
 
     
 
