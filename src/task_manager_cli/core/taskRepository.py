@@ -32,6 +32,21 @@ class TaskRepository:
 
         with open(file=path_to_output_file, mode='r') as f:
             self.tasks = f.read()
+    
+    def mark_completed(self, task_id: int):
+        all_tasks = self.get_all_tasks()
+
+        all_tasks[task_id].mark_completed()
+    
+    def update_task_description(self, task_id: int, new_description: str):
+        all_tasks = self.get_all_tasks()
+
+        all_tasks[task_id].update_description(new_description)
+    
+    def update_task_category(self, task_id: int, new_category: str):
+        all_tasks = self.get_all_tasks()
+
+        all_tasks[task_id].update_category(new_category)
 
 
     

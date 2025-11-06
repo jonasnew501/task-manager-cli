@@ -12,19 +12,13 @@ class TaskManager:
         self.taskRepository.add_task(task=new_task)
     
     def complete_task(self, task_id: int):
-        all_tasks = self.taskRepository.get_all_tasks()
-
-        all_tasks[task_id].mark_completed()
+        self.taskRepository.mark_completed(task_id=task_id)
     
     def update_task_description(self, task_id: int, new_description: str):
-        all_tasks = self.taskRepository.get_all_tasks()
-
-        all_tasks[task_id].update_description(new_description)
+        self.taskRepository.update_task_description(task_id=task_id, new_description=new_description)
     
     def update_task_category(self, task_id: int, new_category: str):
-        all_tasks = self.taskRepository.get_all_tasks()
-
-        all_tasks[task_id].update_category(new_category)
+        self.taskRepository.update_task_category(task_id=task_id, new_category=new_category)
     
     #TODO: Implement
     # def list_tasks(self, filters: list[Filter] = None) -> list[Task]:
