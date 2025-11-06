@@ -152,7 +152,25 @@ project-root/
 
 <br>
 
-- ****
+- **What *cohesion* refers to in programming and how it relates to the *Single-responsibility principle* of SOLID**
+    - In programming, *cohesion* refers to the degree to which the elements inside a module belong together.
+    - It describes two different relations:
+        - It is a measure of the strength of relationship between the methods and data of a class and some unifying purpose or concept served by that class.
+        - It is a measure of the strength of relationship between the class's methods and data.
+    
+    - Expressed differently:  
+      It describes/measures, how well a unit in a program (i.e. a class, a method, a module) represents one single logical task or unit.  
+      In a system with *strong cohesion* every unit has exactly one well-defined task.
+
+    - The *Single-responsibility principle* (SRP) says:  
+      Every class (sometimes more broad: 'unit') should only have exactly one well-defined task.
+      This task is achieved through the ensemble/interaction of all attributes/data and methods of that class.  
+      -->If the class only has one well-defined task, consequently the ensemble/interaction of the attributes/data and methods is very tight/close.  
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->And thus due to the tight ensemble there is *strong cohesion*.
+    
+    - --> **Bottom-line**:  
+    In general, **higher cohesion is good — it makes code easier to understand, maintain, and reuse.**  
+    However, in practice, **the design goal is high cohesion with low coupling**
 
 
 
