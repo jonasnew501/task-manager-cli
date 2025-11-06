@@ -49,15 +49,17 @@ project-root/
 │       │   └── taskManager.py         # Core logic / coordination layer
 │       │   └── filters.py
 │       ├── cli/                       # handles parsing input & printing output
-│       │   ├── main.py                # CLI entry point, argument parsing
-
+│       │   ├── cli.py                 # CLI functionality, argument parsing
+│
 ├── tests/                             # contains Unittests
 │       ├── core/
 │       │   ├── test_task.py
 │       │   ├── test_taskRepository.py
 │       │   └── test_taskManager.py
 │       │   └── test_filters.py
-
+│
+│── main.py                            # The entry-point of the program.
+│
 ├── dist/
 │   └── task_manager_cli.exe           # Built executable output
 ├── pyproject.toml
@@ -123,10 +125,38 @@ project-root/
 
 > This list will be updated while the project evolves
 
-- SRP forces clearer code boundaries  
-- OCP makes it easier to add features without breaking existing ones  
-- Separating CLI from logic makes testing cleaner  
-- Good architecture reduces complexity *before* it appears  
+- **How to write *'one-shot'* CLI-applications vs. *stateful, interactive* CLI-applications**
+    - In my current understanding, there are two kinds of CLI-applications:  
+        - **'one-shot' CLI-applications:**
+            - When called, take the user-input, execute some command(s), and terminate immedately after that again.
+            - No lasting data in RAM
+        - **stateful, interactive CLI-applications**:
+            - When called, run continuously until a termination-condition is reached.
+            - The user can interact with them, i.e. can give in different input / commands while the program runs.
+            - Since the application runs continuously, it's data is held in RAM.
+    
+    To take in user-input via a CLI, there are various methods.  
+    I encountered the following two:
+    - **'argparse.ArgumentParser'**
+        - Is rather suited for *one-shot* CLI-applications, e.g.:  
+            ```python
+            python main.py add --description "Buy milk" --category "home"
+            ```
+        - I used 'argparse.ArgumentParser' in my project **Textfile_writer**, a sub-project contained in my repository 'unittest_training' ([Link to the respective file](https://github.com/jonasnew501/unittest_training/blob/main/src/unittest_training/projects/textfile_writer/textfile_writer_cli.py))
+    
+    - Pythons´ **'input()'**:
+        - Can be used well for *stateful, interactive* CLI-applications, since no program is executed in conjuction with giving in the user input, as compared to 'ArgumentParser'
+        - Simply takes in user-input as a string
+        - However, the user-input needs to be cleaned and command and potential arguments along with the command need to be identified and separated manually from the user-input-string.
+        - ([Link to the respective file where 'input()' is used in this project at hand](https://github.com/jonasnew501/task-manager-cli/blob/main/src/task_manager_cli/cli/cli.py))
+
+<br>
+
+- ****
+
+
+
+    
 
 
 ## Future Enhancements
