@@ -3,12 +3,14 @@ from enum import Enum
 
 from src.task_manager_cli.core.taskRepository import TaskRepository
 from src.task_manager_cli.core.taskManager import TaskManager
+from src.task_manager_cli.core.filters import FilterUtilities
 
 
 
 class CLI:
     def __init__(self) -> None:
         self.taskManager = TaskManager(taskRepository=TaskRepository())
+        self.filterUtilities = FilterUtilities()
 
         
 
@@ -75,10 +77,16 @@ class CLI:
             new_category = args[1]
             self.taskManager.update_task_category(task_id=task_id, new_category=new_category)
         
-        # elif command == "show_possible_filters":
+        elif command == "show_possible_filters":
+            print("")
+            print("All concrete filters:")
+            for concrete_filter_name in self.filterUtilities.get_all_concrete_filters():
+                print(f"{concrete_filter_name}")
+            print("")
 
-
-        # elif command == "filter":
+        elif command == "filter":
+            concrete_filters = args
+            filtered_tasks = self.taskManager.list_tasks()
 
 
         
