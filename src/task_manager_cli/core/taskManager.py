@@ -27,6 +27,9 @@ class TaskManager:
         filtered_tasks = [task for task in all_tasks if all(filter.match(task) for filter in filters)]
 
         return filtered_tasks
+    
+    def _get_all_tasks(self):
+        return self.taskRepository.get_all_tasks()
 
 
         
