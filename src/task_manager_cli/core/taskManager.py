@@ -7,8 +7,8 @@ class TaskManager:
     def __init__(self, taskRepository: TaskRepository):
         self.taskRepository = taskRepository
     
-    def add_task(self, description: str, category: str = "", completed: bool = False):
-        new_task = self._create_new_task(description=description, category=category, completed=completed)
+    def add_task(self, description: str, category: str = ""):
+        new_task = self._create_new_task(description=description, category=category, completed=False)
 
         self.taskRepository.add_task(task=new_task)
     

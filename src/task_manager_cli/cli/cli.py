@@ -1,4 +1,5 @@
 import argparse
+from enum import Enum
 
 from src.task_manager_cli.core.taskRepository import TaskRepository
 from src.task_manager_cli.core.taskManager import TaskManager
@@ -9,7 +10,15 @@ class CLI:
     def __init__(self) -> None:
         self.taskManager = TaskManager(taskRepository=TaskRepository())
 
+        
 
+    # class PossibleCommands(Enum):
+    #     add_task = 0
+    #     modify_task = 1
+    #     filter_tasks = 2
+    #     print_tasks = 3
+    #     save_tasks = 4
+    #     load_tasks = 5
 
     def run(self):
         self._print_welcome_message()
@@ -35,9 +44,12 @@ class CLI:
         """
         cmd, args = self._get_command_and_arguments_of_user_input(user_input=user_input)
 
-        if cmd == "add":
-            pass
+        
 
+    
+    def _execute_command(self, command: str, args: list[str]):
+        if command == "add":
+            
         
     
     def _get_command_and_arguments_of_user_input(self, user_input: str) -> tuple:
@@ -51,9 +63,6 @@ class CLI:
 
         cmd = user_input_split[0]
         args = user_input_split[1:]
-
-        if not args:
-            return (cmd, "")
         
         return (cmd, args)
     
