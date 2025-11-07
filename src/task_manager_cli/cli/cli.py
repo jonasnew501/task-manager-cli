@@ -42,14 +42,45 @@ class CLI:
             - contain no leading or trailing whitespaces
             - be completely lowercase
         """
-        cmd, args = self._get_command_and_arguments_of_user_input(user_input=user_input)
+        command, args = self._get_command_and_arguments_of_user_input(user_input=user_input)
+
+        self._execute_command(command, args)
 
         
 
     
     def _execute_command(self, command: str, args: list[str]):
         if command == "add":
-            
+            description = args[0]
+            category = args[1] if len(args) > 1 else "Undefined"
+            self.taskManager.add_task(description=description, category=category)
+
+        elif command == "list_all":
+            print("")
+            for task_id, task in enumerate(self.taskManager._get_all_tasks(), start=1):
+                print(f"Task_ID: {task_id}: Task: {task}")
+            print("")
+        
+        elif command == "complete":
+            task_id = int(args[0])
+            self.taskManager.complete_task(task_id=task_id)
+        
+        elif command == "update_description":
+            task_id = int(args[0])
+            new_description = args[1]
+            self.taskManager.update_task_description(task_id=task_id, new_description=new_description)
+
+        elif command == "update_category":
+            task_id = int(args[0])
+            new_category = args[1]
+            self.taskManager.update_task_category(task_id=task_id, new_category=new_category)
+        
+        # elif command == "show_possible_filters":
+
+
+        # elif command == "filter":
+
+
         
     
     def _get_command_and_arguments_of_user_input(self, user_input: str) -> tuple:
